@@ -27,13 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     afficherTexte();
 });
-//const cote=document.getElementById('carre');
-//function move_carre(){
-    //cote.style.height='150px';
-    //cote.style.backgroundColor='blue';
-//}
-//cote.addEventListener('click',move_carre);
-//sectionner tous les competences
 const competences = document.querySelectorAll('.competence'); // Tous les boutons
 const explication = document.getElementById('explication');    // La boîte pour les explications
 
@@ -95,4 +88,12 @@ couleur.addEventListener('mouseover',function(){
     couleur.style.color= '#4e1f3afa'})
 couleur.addEventListener('mouseout',function(){
     couleur.style.color=''
+})
+let projet1=document.getElementById('projet1')
+projet1.addEventListener('click',()=>{
+    window.location.href='../html/projet1.html'
+})
+let projet2=document.getElementById('projet2')
+projet2.addEventListener('click',()=>{
+    window.location.href='../html/projet2.html'
 })

@@ -1,34 +1,50 @@
-/* Reset de base pour un style cohérent */
+/* Variables CSS pour une meilleure maintenabilité */
+:root {
+  --primary-color: #4d83b8;
+  --secondary-color: #2ecc71;
+  --text-color: #ffffff;
+  --background-gradient: linear-gradient(to right, #ccc9c9, #4d83b8);
+  --section-gradient: linear-gradient(to right, #2918e06e, #4d83b8);
+  --box-shadow: 2px 2px 4px rgba(240, 229, 229, 0.4);
+}
+
+/* Reset et styles de base */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #ccc9c9, #4d83b8); /* Fond sombre avec un gradient */
-  color: white;
+  background: var(--background-gradient);
+  color: var(--text-color);
   text-align: center;
   line-height: 1.6;
 }
 
-/* Section principale pour les photos */
+/* Section Header/Photos */
 .ma_photos {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 1px;
+  align-items: center;
+  padding: 2rem 1rem;
 }
 
 .ma_photos h1 {
-  margin-left: 80px;
-  padding: 30px 70px;
-  font-size: 45px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  margin-left: 5rem;
+  padding: 2rem 4.375rem;
+  font-size: 2.8125rem;
+  text-shadow: var(--box-shadow);
 }
 
 .ma_photos img {
-  width: 200px;
-  height: 200px;
+  width: 12.5rem;
+  height: 12.5rem;
   border: 2px solid rgb(247, 231, 231);
   border-radius: 50%;
-  margin-right: 20px;
+  margin-right: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.ma_photos img:hover {
+  transform: scale(1.05);
 }
 
 /* Titres secondaires */
@@ -46,8 +62,8 @@ dt {
 /* Introduction des compétences */
 .skills-intro {
   text-align: center;
-  padding: 40px 20px;
-  background: linear-gradient(to right, #5b578b6e, #4d83b8); /* Fond sombre avec un gradient */
+  padding: 2.5rem 1.25rem;
+  background: var(--section-gradient);
   color: #ecdada;
   /* border-bottom: 2px solid #2ecc71; */
 }
@@ -64,69 +80,6 @@ dt {
   max-width: 700px;
   margin: 0 auto;
   color: #e4dcdc;
-}
-
-/* Grille des compétences */
-.competences {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Colonnes flexibles */
-  gap: 20px;
-  margin: 50px;
-}
-
-.competence {
-  background-color: #3498db63;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.competence:hover {
-  background-color: #757171;
-}
-
-.competence.clicked {
-  transform: scale(1.2);
-  z-index: 10;
-}
-
-/* Bloc carré */
-#carre {
-  width: 150px;
-  height: 150px;
-  background-color: #d36525;
-  margin: 0 auto 100px; /* Centré horizontalement */
-}
-
-/* Boîte d'explication */
-#explication {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 600px;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-#explication.show {
-  display: block;
-  opacity: 1;
-}
-
-#explication p {
-  margin: 10px 0;
-  font-size: 16px;
 }
 
 /* Pied de page */
@@ -165,4 +118,22 @@ footer a {
 footer a:hover {
   color: #89d4a2;
   text-decoration: underline;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .ma_photos {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .ma_photos h1 {
+    margin-left: 0;
+    padding: 1rem;
+  }
+  
+  .competences {
+    grid-template-columns: 1fr;
+    margin: 1.25rem;
+  }
 }
