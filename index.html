@@ -3,54 +3,807 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenue sur mon Portfolio</title>
-    <link rel="stylesheet" href="../style/style_in.css">
+    <title>Duvet Gema Ndoumba-Mbouba | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style_in.css">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --secondary-color: #10b981;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --text-color: #374151;
+            --text-light: #6b7280;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.7;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: rgba(79, 70, 229, 0.2);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .typing-text {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(79, 70, 229, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .profile-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02);
+        }
+
+        .decorative-shape {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary-color);
+            border-radius: 20px;
+            top: 20px;
+            left: 20px;
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+
+        .hero-image:hover .decorative-shape {
+            top: 15px;
+            left: 15px;
+        }
+
+        .projects {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid #e5e7eb;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-container {
+            width: 100%;
+            height: 220px; /* Hauteur réduite pour un meilleur équilibre */
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px 8px 0 0;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-slide {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Changé de 'contain' à 'cover' pour remplir l'espace */
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            padding: 0; /* Suppression du padding pour utiliser tout l'espace */
+        }
+        .carousel-slide img:first-child {
+            opacity: 1;
+        }
+        .carousel-slide img.active {
+            opacity: 1;
+        }
+        .project-links {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 10;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .project-links a {
+            background: rgba(255, 255, 255, 0.95);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .project-links a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
+        }
+        .project-image {
+            position: relative;
+        }
+        /* Style unifié pour les cartes de projet */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 35px;
+            padding: 0 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .project-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-info h3 {
+            font-size: 1.4rem;
+            color: var(--dark-color);
+            margin: 0 0 0.8rem 0;
+            font-weight: 700;
+        }
+
+        .project-info p {
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .project-info h3 {
+            margin: 0 0 10px 0;
+            color: #2d3748;
+        }
+        .project-info p {
+            color: #4a5568;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .project-tags span {
+            background: #eef2ff;
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            transition: all 0.2s ease;
+        }
+
+        .project-tags span:hover {
+            background: #e0e7ff;
+            transform: translateY(-1px);
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2rem;
+            border: 1px solid #e5e7eb;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+            position: relative;
+            transition: width 1s ease-in-out;
+        }
+
+        .skill-level::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0) 50%,
+                rgba(255, 255, 255, 0.8) 100%
+            );
+            background-size: 200% 100%;
+            animation: shine 2s infinite;
+            border-radius: 4px;
+        }
+
+        @keyframes shine {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .btn-submit {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--primary-hover);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-submit:hover::before {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <header>
-    <h1>Bienvenue sur mon Portfolio</h1>
-    <div class="carousel">
-        <div class="carousel-images" id="carousel-images">
-            <img src="../ressource/cropped-DSC_0114 (2).jpg" alt="Photo 1" class="ma-photo">
-            <img src="../ressource/gema-removebg-preview.jpg" alt="Photo 2" class="ma-photo">
-            <img src="../ressource/455356825_1928737014264623_4599417613121778264_n.jpg" alt="Photo 3" class="ma-photo">
-        </div>
-    </div>
-</div>
-    </header>
-
-    <section class="intro">
-        <h3>
-            <div id="texte" class="texte">
-             <!-- Le texte sera affiché lettre par lettre -->
-             </div>
-        <!-- Section Projets -->
-        <section class="projects">
-            <h2>Mes Projets</h2>
-            <div class="project-list">
-                <div class="project-item" id="projet1">
-                    <h3>Projet 1</h3>
-                        <a href="../html/projet1.html">aller au projet 1</a>
-                </div>
-                <div class="project-item">
-                    <h3>Projet 2</h3>
-                    <a href="../html/projet2.html">aller au projet 2</a>
-                </div>
-                <!-- Ajouter d'autres projets ici -->
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <a href="#">DGN</a>
             </div>
-        </section>
-    
-        <!-- Section Contact -->
-        <section class="contact">
-            <h2>Contact</h2>
-            <h2><a href="./html/visite.html" target="_blank" id="visiter">mes competances</a></h2>
-            <p>Contactez-moi à : <a href="ndoumbaduvetgema@gmail.com" id="email">ndoumbaduvetgema@gmail.com</a></p>
-        </section>
-    
-        <!-- Pied de page -->
-        <footer>
-            <p>&copy; 2024 Duvet Gema Ndoumba-Mbouba</p>
-        </footer>
-        <script src="../page/first.js"></script>
-    </body>
-    </html>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#contact" class="btn-contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="animate-text">Bonjour, je suis <span class="highlight">Duvet Gema</span></h1>
+                <h2 class="typing-text">Développeur Passionné & Créatif</h2>
+                <p id="texte" class="animate-text">Je crée des expériences numériques uniques et mémorables</p>
+                <div class="cta-buttons">
+                    <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+                    <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="ressource/cropped-DSC_0114 (2).jpg" alt="Duvet Gema" class="profile-image">
+                    <div class="decorative-shape"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <span>Défiler vers le bas</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projets" class="projects">
+        <div class="section-header">
+            <h2>Mes Projets</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="carousel-container">
+                        <div class="carousel-slide">
+                            <img src="ressource/projet1/Screenshot from 2025-11-01 19-20-14.png" alt="Projet 1 - Capture d'écran 1">
+                            <img src="ressource/projet1/Screenshot from 2025-11-01 19-20-27.png" alt="Projet 1 - Capture d'écran 2">
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://smartetudes.onrender.com/" class="project-link" target="_blank"><i class="fas fa-link"></i></a>
+                        <a href="https://github.com/Gema177/" class="project-github" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Plateforme de révision intelligente</h3>
+                    <p>Développement d'une plateforme web qui aide les étudiants à mieux apprendre à partir de leurs documents. L'utilisateur peut importer un cours ou un livre (PDF, DOCX, TXT), la plateforme résume automatiquement le contenu, génère des fiches de révision et propose des quiz.</p>
+                    <div class="project-tags">
+                        <span>Django 4.2</span>
+                        <span>PostgreSQL</span>
+                        <span>OpenAI API</span>
+                        <span>Celery</span>
+                        <span>Tailwind CSS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="carousel-container">
+                        <div class="carousel-slide">
+                            <img src="ressource/projet2/1.png" alt="Projet 2 - Capture d'écran 1">
+                            <img src="ressource/projet2/2.png" alt="Projet 2 - Capture d'écran 2">
+                            <img src="ressource/projet2/3.png" alt="Projet 2 - Capture d'écran 3">
+                            <img src="ressource/projet2/4.png" alt="Projet 2 - Capture d'écran 4">
+                            <img src="ressource/projet2/5.png" alt="Projet 2 - Capture d'écran 5">
+                            <img src="ressource/projet2/6.png" alt="Projet 2 - Capture d'écran 6">
+                            <img src="ressource/projet2/Screenshot from 2025-11-01 21-46-18.png" alt="Projet 2 - Capture d'écran 7">
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://smartagricongo.netlify.app/" class="project-link" target="_blank"><i class="fas fa-link"></i></a>
+                        <a href="https://github.com/Gema177/" class="project-github" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>SmartAgriCongo</h3>
+                    <p>Plateforme numérique pour moderniser le secteur agricole congolais. Elle facilite la mise en relation entre producteurs, acheteurs et transporteurs, avec un système de prévisions météorologiques intégré pour aider à la planification des activités agricoles.</p>
+                    <div class="project-tags">
+                        <span>Django</span>
+                        <span>SQLite</span>
+                        <span>HTML/CSS/JS</span>
+                        <span>API Météo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="view-more">
+            <a href="#" class="btn btn-outline">Voir plus de projets</a>
+        </div>
+    </section>
+
+    <!-- Section Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <div class="section-header">
+            <h2>Mon Portfolio</h2>
+            <div class="underline"></div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="competences" class="skills">
+        <div class="section-header">
+            <h2>Mes Compétences</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python/Django</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML5/CSS3/JS</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Bases de données</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-server"></i> Backend</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>APIs REST</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>IA/ML (OpenAI API)</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Me Contacter</h2>
+            <div class="underline"></div>
+            <p class="contact-intro">N'hésitez pas à me contacter pour toute opportunité ou collaboration</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:ndoumbaduvetgema@gmail.com">ndoumbaduvetgema@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Téléphone</h3>
+                        <a href="tel:+242065922471">+242 06 592 24 71</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>WhatsApp</h3>
+                        <a href="https://wa.me/242065922471" target="_blank">+242 06 59 22 47 1</a>
+                    </div>
+                </div>
+                <div class="contact-social">
+                    <a href="https://github.com/Gema177/" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/duvet-gema-ndoumba-105a45231" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <form class="contact-form" action="https://formspree.io/f/mvgvvnjy" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Votre email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="subject" placeholder="Sujet" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Script pour le carrousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.carousel-slide img');
+            let current = 0;
+            
+            function nextImage() {
+                // Masquer l'image actuelle
+                images[current].classList.remove('active');
+                
+                // Passer à l'image suivante
+                current = (current + 1) % images.length;
+                
+                // Afficher la nouvelle image
+                images[current].classList.add('active');
+                
+                // Planifier le prochain changement
+                setTimeout(nextImage, 4000); // Change toutes les 4 secondes
+            }
+            
+            // Démarrer le carrousel après 4 secondes
+            setTimeout(nextImage, 4000);
+            
+            // Ajouter la classe active à la première image
+            if (images.length > 0) {
+                images[0].classList.add('active');
+            }
+        });
+    </script>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="#">DGN</a>
+                <p>Création de solutions web innovantes et élégantes</p>
+            </div>
+            <div class="footer-links">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Abonnez-vous pour recevoir mes dernières actualités</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Duvet Gema Ndoumba-Mbouba. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Bouton de retour en haut -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="page/first.js"></script>
+</body>
+</html>
