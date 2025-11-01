@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const texte = "Je suis Duvet Gema Ndoumba-Mbouba, passionné d'informatique et de technologies avec une formation en mathématiques et en informatique appliquée. Actuellement étudiant en licence d'informatique, je me spécialise dans des domaines tels que la cryptologie, le développement web, et l'intelligence artificielle. Mon objectif est de repousser les limites de l'innovation à travers des projets passionnants et des solutions créatives.";
+    const texte = "Je suis Duvet Gema Ndoumba-Mbouba, passionné d'informatique et de technologies avec une formation en mathématiques et en informatique appliquée.je me spécialise dans des domaines tels que la cryptologie, le développement web, et l'intelligence artificielle. Mon objectif est de repousser les limites de l'innovation à travers des projets passionnants et des solutions créatives.";
     
     let index = 0;
     const speed = 50; // Vitesse d'affichage en millisecondes
