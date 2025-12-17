@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django vs React : Mon choix technique - Duvet Gema Ndoumba-Mbouba</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="mon-portfolio/style/style_in.css">
+
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #10b981;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --text-color: #374151;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .article-hero {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: -3rem auto 4rem;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .article-content {
+            padding: 3rem;
+        }
+
+        .article-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .article-text h2 {
+            margin-top: 3rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .highlight-box {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-color);
+            margin: 2.5rem 0;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-content">
+        <div class="logo">
+            <a href="mon-portfolio/index.html">DGN</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="mon-portfolio/index.html">Accueil</a></li>
+            <li><a href="mon-portfolio/index.html#projets">Projets</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="mon-portfolio/index.html#competences">Compétences</a></li>
+            <li><a href="mon-portfolio/index.html#contact" class="btn-contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="article-hero">
+    <h1>Django vs React</h1>
+    <p>Mon choix technique et ma vision du développement web moderne</p>
+</section>
+
+<!-- Article -->
+<div class="article-container">
+    <div class="article-content">
+
+        <span class="article-badge">Architecture Web</span>
+
+        <h1 class="article-title">
+            Django vs React : pourquoi j’ai choisi Django pour mes projets backend
+        </h1>
+
+        <div class="highlight-box">
+            <p>
+                Lorsqu’on débute ou qu’on évolue dans le développement web moderne, une question revient souvent :
+                faut-il choisir Django ou React ?  
+                Dans cet article, je partage mon choix technique, basé sur l’expérience, la pédagogie et la performance.
+            </p>
+        </div>
+
+        <div class="article-text">
+
+            <h2>🧠 Django et React : deux rôles différents</h2>
+            <p>
+                Django et React ne sont pas des technologies concurrentes directes, mais complémentaires.
+            </p>
+            <ul>
+                <li><strong>Django</strong> est un framework backend écrit en Python.</li>
+                <li><strong>React</strong> est une librairie JavaScript orientée frontend.</li>
+            </ul>
+
+            <h2>⚙️ Pourquoi j’ai choisi Django pour le backend</h2>
+            <p>
+                Django s’est imposé comme mon choix principal pour le backend pour plusieurs raisons :
+            </p>
+            <ul>
+                <li>Framework complet (ORM, authentification, sécurité)</li>
+                <li>Rapidité de développement</li>
+                <li>Excellente structure pour les projets sérieux</li>
+                <li>Parfait pour l’IA, la data et les APIs REST</li>
+            </ul>
+
+            <h2> Comment j’intègre Django avec React</h2>
+            <p>
+                Dans mes projets modernes, j’utilise Django comme une API via <strong>Django REST Framework</strong>,
+                et React comme interface utilisateur.
+            </p>
+            <ul>
+                <li>Django expose des endpoints REST (JSON)</li>
+                <li>React consomme l’API via fetch ou axios</li>
+                <li>Authentification sécurisée avec JWT</li>
+            </ul>
+
+            <h2> Django seul ou Django + React ?</h2>
+            <p>
+                Le choix dépend du projet :
+            </p>
+            <ul>
+                <li><strong>Django + templates</strong> : projets simples, rapides, académiques</li>
+                <li><strong>Django + React</strong> : applications complexes, SPA, dashboards</li>
+            </ul>
+
+            <h2> Ma philosophie de choix technique</h2>
+            <p>
+                Je privilégie toujours la clarté, la maintenabilité et la performance.
+                Django me permet de construire des bases solides, tandis que React apporte
+                une expérience utilisateur moderne lorsque le projet l’exige.
+            </p>
+
+            <h2>Conclusion</h2>
+            <p>
+                Django et React ne s’opposent pas, ils se complètent.
+                Mon choix de Django pour le backend repose sur sa robustesse,
+                sa productivité et son excellente intégration avec les technologies frontend modernes.
+            </p>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

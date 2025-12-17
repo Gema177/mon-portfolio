@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Duvet Gema Ndoumba-Mbouba</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mon-portfolio/style/style_in.css">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --secondary-color: #10b981;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --text-color: #374151;
+            --text-light: #6b7280;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.7;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .blog-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMjUgMjVIMzVWMzVIMjVWMjVaIiBmaWxsPSIjZTVlN2ViIiBmaWxsLW9wYWNpdHk9IjAuMSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .blog-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .blog-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .blog-category {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .blog-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .blog-read-more:hover {
+            gap: 0.8rem;
+            color: var(--primary-hover);
+        }
+
+        .featured-section {
+            margin-bottom: 4rem;
+        }
+
+        .featured-post {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 400px;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            padding: 3rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .featured-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .featured-excerpt {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .featured-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .featured-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-hero p {
+                font-size: 1.1rem;
+            }
+
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-content {
+                padding: 2rem;
+            }
+
+            .featured-title {
+                font-size: 1.5rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+
+            .blog-content {
+                padding: 1.5rem;
+            }
+
+            .featured-content {
+                padding: 1.5rem;
+            }
+        }
+        /* ===== IMAGE ZOOM / LIGHTBOX ===== */
+.image-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 12px;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+    animation: zoomIn 0.35s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.75);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    font-size: 45px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.close-modal:hover {
+    color: #f87171;
+}
+
+.modal-caption {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #e5e7eb;
+    opacity: 0.9;
+}
+
+/* Curseur zoom */
+.zoomable-image {
+    cursor: zoom-in;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <a href="mon-portfolio/index.html">DGN</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="mon-portfolio/index.html">Accueil</a></li>
+                <li><a href="mon-portfolio/index.html#projets">Projets</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="mon-portfolio/index.html#competences">Compétences</a></li>
+                <li><a href="mon-portfolio/index.html#contact" class="btn-contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="blog-hero-content">
+            <h1>Mon Blog</h1>
+            <p>Découvrez mes réflexions, expériences et aventures dans le monde du développement web et de la technologie</p>
+        </div>
+    </section>
+
+    <!-- Blog Container -->
+    <div class="blog-container">
+        <!-- Featured Post -->
+        <div class="featured-section">
+            <h2 class="section-title">Article à la une</h2>
+            <p class="section-subtitle">Mon parcours et ma passion pour le développement</p>
+            
+            <div class="featured-post">
+                <img src="mon-portfolio/ressource/recto article.jpeg" alt="Article sur Duvet Gema" class="featured-image">
+                <div class="featured-content">
+                    <span class="featured-badge">Article publié</span>
+                    <h3 class="featured-title">Portrait : Duvet Gema Ndoumba-Mbouba</h3>
+                    <p class="featured-excerpt">Découvrez mon histoire, mes ambitions et ma vision du développement web à travers cet article complet qui retrace mon parcours dans le monde de la technologie.</p>
+                    <a href="#article-complet" class="featured-link">
+                        Lire l'article complet
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Complet -->
+        <div id="article-complet" class="article-complet-section" style="margin-bottom: 4rem;">
+            <div class="article-container" style="max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);">
+                <div class="article-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem; text-align: center; color: white;">
+                    <span style="background: rgba(255, 255, 255, 0.2); padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.9rem; font-weight: 600; backdrop-filter: blur(10px);">Portrait</span>
+                    <h1 style="font-size: 2.5rem; font-weight: 800; margin: 1.5rem 0 1rem; line-height: 1.2;">Duvet Gema Ndoumba-Mbouba</h1>
+                    <p style="font-size: 1.2rem; opacity: 0.9; margin: 0;">Une passion pour l'innovation et la technologie</p>
+                </div>
+                
+                <div class="article-content" style="padding: 3rem;">
+                    <div class="article-images" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+                        <div style="position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <img src="mon-portfolio/ressource/recto article.jpeg"
+     alt="Page 1"
+     class="zoomable-image"
+     data-caption="Page 1 – Recto de l'article"
+     style="width:100%; height:400px; object-fit:cover;">
+
+                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.7)); color: white; padding: 1.5rem;">
+                                <h3 style="margin: 0; font-size: 1.2rem;">Page 1</h3>
+                            </div>
+                        </div>
+                        <div style="position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <img src="mon-portfolio/ressource/verso  article.jpeg"
+     alt="Page 2"
+     class="zoomable-image"
+     data-caption="Page 2 – Verso de l'article"
+     style="width:100%; height:400px; object-fit:cover;">
+
+                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.7)); color: white; padding: 1.5rem;">
+                                <h3 style="margin: 0; font-size: 1.2rem;">Page 2</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="article-text" style="line-height: 1.8; color: var(--text-color);">
+                        <h2 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1.5rem;">Mon parcours</h2>
+                        <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">Passionné par la technologie depuis mon plus jeune âge, j'ai toujours été fasciné par la manière dont le code peut transformer des idées en solutions concrètes. Mon parcours dans le développement web a commencé comme une curiosité et s'est rapidement transformée en une véritable passion.</p>
+                        
+                        <h2 style="font-size: 2rem; color: var(--primary-color); margin: 2rem 0 1.5rem;">Mes réalisations</h2>
+                        <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">Au fil des années, j'ai développé plusieurs projets innovants qui témoignent de ma capacité à relever des défis techniques complexes. De la plateforme éducative SmartÉtude à la solution agricole SmartAgriCongo, chaque projet est une opportunité d'apprendre et d'innover.</p>
+                        
+                        <h2 style="font-size: 2rem; color: var(--primary-color); margin: 2rem 0 1.5rem;">Ma vision</h2>
+                        <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">Je crois fermement que la technologie peut être un puissant levier de changement positif dans notre société. Mon objectif est de continuer à créer des solutions qui répondent à des réels besoins tout en repoussant les limites de ce qui est techniquement possible.</p>
+                        
+                        <div style="background: var(--light-color); padding: 2rem; border-radius: 15px; margin: 2rem 0; border-left: 4px solid var(--primary-color);">
+                            <p style="margin: 0; font-style: italic; font-size: 1.1rem;">"Le développement n'est pas seulement une question de code, c'est une façon de penser, de résoudre des problèmes et de créer de la valeur."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-footer" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; text-align: center;">
+                        <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">5+</div>
+                                <div style="color: var(--text-light);">Années d'expérience</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">10+</div>
+                                <div style="color: var(--text-light);">Projets réalisés</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">100%</div>
+                                <div style="color: var(--text-light);">Passion</div>
+                            </div>
+                        </div>
+                        <a href="mon-portfolio/index.html#contact" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            Me contacter
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Blog Grid -->
+        <h2 class="section-title">Derniers articles</h2>
+        <p class="section-subtitle">Mes réflexions et partages d'expériences</p>
+        
+        <div class="blog-grid">
+            <article class="blog-card">
+                <img src="mon-portfolio/ressource/projet1/Screenshot from 2025-11-01 19-20-14.png" alt="SmartÉtude" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <i class="fas fa-calendar"></i>
+                            15 Novembre 2024
+                        </span>
+                        <span class="blog-category">Projet</span>
+                    </div>
+                    <h3 class="blog-title">SmartÉtude : Révolutionner l'apprentissage</h3>
+                    <p class="blog-excerpt">Comment j'ai développé une plateforme qui transforme n'importe quel document en expérience d'apprentissage interactive grâce à l'IA.</p>
+                    <a href="smarteude.html" class="blog-read-more">
+                        Lire la suite
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <img src="mon-portfolio/ressource/projet2/1.png" alt="SmartAgriCongo" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <i class="fas fa-calendar"></i>
+                            10 Novembre 2024
+                        </span>
+                        <span class="blog-category">Innovation</span>
+                    </div>
+                    <h3 class="blog-title">SmartAgriCongo : L'agriculture du futur</h3>
+                    <p class="blog-excerpt">Une innovation numérique pour moderniser l'agriculture congolaise et connecter les acteurs de la chaîne de valeur.</p>
+                    <a href="#smartagri" class="blog-read-more">
+                        Lire la suite
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <img src="mon-portfolio/ressource/455356825_1928737014264623_4599417613121778264_n.jpg" alt="Développement personnel" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <i class="fas fa-calendar"></i>
+                            5 Novembre 2024
+                        </span>
+                        <span class="blog-category">Développement</span>
+                    </div>
+                    <h3 class="blog-title">L'art de l'apprentissage continu</h3>
+                    <p class="blog-excerpt">Mes stratégies et méthodes pour rester à jour dans un domaine technologique en constante évolution.</p>
+                    <a href="Aprendre.html" class="blog-read-more">
+                        Lire la suite
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <img src="mon-portfolio/ressource/django-vs-react-the-key.JPG" alt="Technologies" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <i class="fas fa-calendar"></i>
+                            1 Novembre 2024
+                        </span>
+                        <span class="blog-category">Technologie</span>
+                    </div>
+                    <h3 class="blog-title">Django vs React : Mon choix technique</h3>
+                    <p class="blog-excerpt">Pourquoi j'ai choisi Django pour mes projets backend et comment je l'intègre avec des technologies frontend modernes.</p>
+                    <a href="django-react.html" class="blog-read-more">
+                        Lire la suite
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <img src="mon-portfolio/ressource/integrer ia dans les solutions.png" alt="IA et développement" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <i class="fas fa-calendar"></i>
+                            25 Octobre 2024
+                        </span>
+                        <span class="blog-category">IA</span>
+                    </div>
+                    <h3 class="blog-title">Intégrer l'IA dans ses applications</h3>
+                    <p class="blog-excerpt">Mon expérience pratique avec les API d'OpenAI et les défis de l'intégration de l'intelligence artificielle dans des projets réels.</p>
+                    <a href="integreIA.html" class="blog-read-more">
+                        Lire la suite
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <img src="mon-portfolio/ressource/conseille pour debiter en web.jpg" alt="Conseils" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <i class="fas fa-calendar"></i>
+                            20 Octobre 2024
+                        </span>
+                        <span class="blog-category">Conseils</span>
+                    </div>
+                    <h3 class="blog-title">5 conseils pour débuter en développement</h3>
+                    <p class="blog-excerpt">Mes meilleurs conseils basés sur mon expérience personnelle pour ceux qui veulent commencer leur carrière dans le développement web.</p>
+                    <a href="conseil.html" class="blog-read-more">
+                        Lire la suite
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="mon-portfolio/index.html">DGN</a>
+                <p>Création de solutions web innovantes et élégantes</p>
+            </div>
+            <div class="footer-links">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="mon-portfolio/index.html">Accueil</a></li>
+                    <li><a href="mon-portfolio/index.html#projets">Projets</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="mon-portfolio/index.html#competences">Compétences</a></li>
+                    <li><a href="mon-portfolio/index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Abonnez-vous pour recevoir mes dernières actualités</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Duvet Gema Ndoumba-Mbouba. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="mon-portfolio/page/first.js"></script>
+    
+    <script>
+        // Animation d'apparition des articles
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogCards = document.querySelectorAll('.blog-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            blogCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+        <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const captionText = document.getElementById("modalCaption");
+    const closeBtn = document.querySelector(".close-modal");
+
+    document.querySelectorAll(".zoomable-image").forEach(image => {
+        image.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImg.src = image.src;
+            captionText.textContent = image.dataset.caption || "";
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    function closeModal() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - Duvet Gema Ndoumba-Mbouba</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mon-portfolio/style/style_in.css">
+<style>
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary-color: #10b981;
+    --dark-color: #1f2937;
+    --light-color: #f9fafb;
+    --text-color: #374151;
+    --text-light: #6b7280;
+}
+
+body { color: var(--text-color); line-height:1.7; font-family:'Poppins',sans-serif; background:#f8fafc; }
+
+/* ==== IMAGE ZOOM / LIGHTBOX ==== */
+#imageModal {
+    display: none;
+    position: fixed;
+    inset:0;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#imageModal img { max-width:90%; max-height:85%; border-radius:12px; box-shadow:0 25px 70px rgba(0,0,0,0.6);}
+.close-modal { position:absolute; top:20px; right:35px; font-size:45px; color:#fff; cursor:pointer; font-weight:bold;}
+.close-modal:hover { color:#f87171;}
+#imageModal .modal-caption { margin-top:15px; font-size:1.2rem; color:#e5e7eb; opacity:0.9;}
+.zoomable-image { cursor: zoom-in; }
+
+/* === Le reste de ton CSS === */
+/* Tu peux coller ici tout le CSS que tu avais déjà dans ton <style> ou style_in.css */
+</style>
+</head>
+<body>
+
+<!-- Barre de navigation -->
+<nav class="navbar">
+    <div class="nav-content">
+        <div class="logo">
+            <a href="mon-portfolio/index.html">DGN</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="mon-portfolio/index.html">Accueil</a></li>
+            <li><a href="mon-portfolio/index.html#projets">Projets</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="mon-portfolio/index.html#competences">Compétences</a></li>
+            <li><a href="mon-portfolio/index.html#contact" class="btn-contact">Contact</a></li>
+        </ul>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+</nav>
+
+<!-- Blog Hero Section -->
+<section class="blog-hero">
+    <div class="blog-hero-content">
+        <h1>Mon Blog</h1>
+        <p>Découvrez mes réflexions, expériences et aventures dans le monde du développement web et de la technologie</p>
+    </div>
+</section>
+
+<!-- Blog Container -->
+<div class="blog-container">
+    <!-- Featured Post -->
+    <div class="featured-section">
+        <h2 class="section-title">Article à la une</h2>
+        <p class="section-subtitle">Mon parcours et ma passion pour le développement</p>
+        
+        <div class="featured-post">
+            <img src="mon-portfolio/ressource/recto article.jpeg" alt="Article sur Duvet Gema" class="featured-image zoomable-image" data-caption="Portrait – Recto">
+            <div class="featured-content">
+                <span class="featured-badge">Article publié</span>
+                <h3 class="featured-title">Portrait : Duvet Gema Ndoumba-Mbouba</h3>
+                <p class="featured-excerpt">Découvrez mon histoire, mes ambitions et ma vision du développement web.</p>
+                <a href="#article-complet" class="featured-link">
+                    Lire l'article complet <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Complet -->
+    <div id="article-complet" class="article-complet-section" style="margin-bottom:4rem;">
+        <div class="article-container" style="max-width:900px; margin:0 auto; background:white; border-radius:20px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.15);">
+            <div class="article-header" style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); padding:3rem; text-align:center; color:white;">
+                <span style="background:rgba(255,255,255,0.2); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:600; backdrop-filter:blur(10px);">Portrait</span>
+                <h1 style="font-size:2.5rem; font-weight:800; margin:1.5rem 0 1rem; line-height:1.2;">Duvet Gema Ndoumba-Mbouba</h1>
+                <p style="font-size:1.2rem; opacity:0.9; margin:0;">Une passion pour l'innovation et la technologie</p>
+            </div>
+            <div class="article-content" style="padding:3rem;">
+                <div class="article-images" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:3rem;">
+                    <div style="position:relative; overflow:hidden; border-radius:15px;">
+                        <img src="mon-portfolio/ressource/recto article.jpeg" alt="Page 1" class="zoomable-image" data-caption="Page 1 – Recto" style="width:100%; height:400px; object-fit:cover;">
+                    </div>
+                    <div style="position:relative; overflow:hidden; border-radius:15px;">
+                        <img src="mon-portfolio/ressource/verso  article.jpeg" alt="Page 2" class="zoomable-image" data-caption="Page 2 – Verso" style="width:100%; height:400px; object-fit:cover;">
+                    </div>
+                </div>
+                <p style="font-size:1.1rem; line-height:1.8;">Passionné par la technologie depuis mon plus jeune âge, j'ai toujours été fasciné par la manière dont le code peut transformer des idées en solutions concrètes...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Grid -->
+    <h2 class="section-title">Derniers articles</h2>
+    <p class="section-subtitle">Mes réflexions et partages d'expériences</p>
+    <div class="blog-grid">
+        <!-- Répétez vos articles ici comme avant -->
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <a href="mon-portfolio/index.html">DGN</a>
+            <p>Création de solutions web innovantes et élégantes</p>
+        </div>
+        <div class="footer-links">
+            <h3>Liens rapides</h3>
+            <ul>
+                <li><a href="mon-portfolio/index.html">Accueil</a></li>
+                <li><a href="mon-portfolio/index.html#projets">Projets</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="mon-portfolio/index.html#competences">Compétences</a></li>
+                <li><a href="mon-portfolio/index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-newsletter">
+            <h3>Newsletter</h3>
+            <p>Abonnez-vous pour recevoir mes dernières actualités</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Votre email">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Duvet Gema Ndoumba-Mbouba. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<!-- IMAGE MODAL -->
+<div id="imageModal">
+    <span class="close-modal">&times;</span>
+    <img id="modalImage">
+    <div class="modal-caption" id="modalCaption"></div>
+</div>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="mon-portfolio/page/first.js"></script>
+
+<script>
+// Animation des articles
+document.addEventListener('DOMContentLoaded', function() {
+    const blogCards = document.querySelectorAll('.blog-card');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry,index)=>{
+            if(entry.isIntersecting){
+                setTimeout(()=>{
+                    entry.target.style.opacity='1';
+                    entry.target.style.transform='translateY(0)';
+                }, index*100);
+            }
+        });
+    },{threshold:0.1});
+    blogCards.forEach(card=>{
+        card.style.opacity='0';
+        card.style.transform='translateY(30px)';
+        card.style.transition='opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+});
+
+// Lightbox / Zoom des images
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const captionText = document.getElementById("modalCaption");
+const closeBtn = document.querySelector(".close-modal");
+
+document.querySelectorAll(".zoomable-image").forEach(image => {
+    image.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = image.src;
+        captionText.textContent = image.dataset.caption || "";
+        document.body.style.overflow = "hidden";
+    });
+});
+
+closeBtn.addEventListener("click", closeModal);
+modal.addEventListener("click",(e)=>{if(e.target===modal){closeModal();}});
+function closeModal(){modal.style.display="none";document.body.style.overflow="auto";}
+</script>
+
+</body>
+</html>
