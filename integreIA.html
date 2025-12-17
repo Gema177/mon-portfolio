@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intégrer l'IA dans ses applications - Duvet Gema Ndoumba-Mbouba</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="mon-portfolio/style/style_in.css">
+
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #10b981;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --text-color: #374151;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .article-hero {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: -3rem auto 4rem;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .article-content {
+            padding: 3rem;
+        }
+
+        .article-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .article-text h2 {
+            margin-top: 3rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .highlight-box {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-color);
+            margin: 2.5rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-content">
+        <div class="logo">
+            <a href="mon-portfolio/index.html">DGN</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="mon-portfolio/index.html">Accueil</a></li>
+            <li><a href="mon-portfolio/index.html#projets">Projets</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="mon-portfolio/index.html#competences">Compétences</a></li>
+            <li><a href="mon-portfolio/index.html#contact" class="btn-contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="article-hero">
+    <h1>Intégrer l’IA dans ses applications</h1>
+    <p>Retour d’expérience sur l’intégration de l’intelligence artificielle dans des projets réels</p>
+</section>
+
+<!-- Article -->
+<div class="article-container">
+    <div class="article-content">
+
+        <span class="article-badge">Intelligence Artificielle</span>
+
+        <h1 class="article-title">
+            Intégrer l’IA dans ses applications : mon expérience pratique
+        </h1>
+
+        <div class="highlight-box">
+            <p>
+                L’intelligence artificielle est aujourd’hui au cœur de nombreuses applications modernes.
+                Cependant, son intégration dans un projet réel va bien au-delà de simples appels à une API.
+                Dans cet article, je partage mon expérience pratique, les choix techniques effectués
+                et les défis rencontrés lors de l’intégration de l’IA.
+            </p>
+        </div>
+
+        <div class="article-text">
+
+            <h2> Pourquoi intégrer l’IA dans une application ?</h2>
+            <p>
+                L’IA permet d’automatiser des tâches complexes comme la compréhension de texte,
+                la génération de contenu ou l’analyse sémantique.
+                Dans mes projets, elle est utilisée pour produire des résumés,
+                générer des quiz et offrir une interaction intelligente avec l’utilisateur.
+            </p>
+
+            <h2>⚙️ Les technologies utilisées</h2>
+            <p>
+                Pour intégrer l’IA, j’ai travaillé avec :
+            </p>
+            <ul>
+                <li>Les API d’OpenAI pour la génération de texte et les résumés</li>
+                <li>SpaCy et NLTK pour le prétraitement des données textuelles</li>
+                <li>Sentence Transformers pour la similarité sémantique</li>
+                <li>Django et Celery pour gérer les traitements asynchrones</li>
+            </ul>
+
+            <h2>🔄 Du document brut à l’intelligence exploitable</h2>
+            <p>
+                Le processus commence par l’importation d’un document.
+                Le texte est extrait, nettoyé et segmenté avant d’être envoyé au modèle d’IA.
+                Cette étape est cruciale : un mauvais prétraitement donne des résultats médiocres,
+                même avec un modèle performant.
+            </p>
+
+            <h2>⚠️ Les défis rencontrés</h2>
+            <p>
+                L’intégration de l’IA pose plusieurs difficultés :
+            </p>
+            <ul>
+                <li>Le coût et les limites des API</li>
+                <li>La gestion des temps de réponse</li>
+                <li>La cohérence et la fiabilité des réponses générées</li>
+                <li>La sécurité et la protection des données utilisateurs</li>
+            </ul>
+
+            <h2>Ce que j’ai appris</h2>
+            <p>
+                Intégrer l’IA demande une bonne compréhension du problème à résoudre,
+                une architecture solide et beaucoup de tests.
+                L’IA n’est pas une solution magique, mais un outil puissant
+                lorsqu’elle est utilisée intelligemment.
+            </p>
+
+            <h2>Conclusion</h2>
+            <p>
+                L’intégration de l’intelligence artificielle dans des applications réelles
+                est un défi passionnant.
+                Elle ouvre de nouvelles perspectives, notamment dans le domaine de l’éducation,
+                mais exige rigueur, réflexion et maîtrise technique.
+                Cette expérience m’a permis de mieux comprendre les enjeux réels de l’IA en production.
+            </p>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartÉtude - Duvet Gema Ndoumba-Mbouba</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mon-portfolio/style/style_in.css">
+
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #10b981;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --text-color: #374151;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .article-hero {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: -3rem auto 4rem;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 3rem;
+        }
+
+        .article-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .article-text h2 {
+            margin-top: 3rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .highlight-box {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-color);
+            margin: 2.5rem 0;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-content">
+        <div class="logo">
+            <a href="mon-portfolio/index.html">DGN</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="mon-portfolio/index.html">Accueil</a></li>
+            <li><a href="mon-portfolio/index.html#projets">Projets</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="mon-portfolio/index.html#competences">Compétences</a></li>
+            <li><a href="mon-portfolio/index.html#contact" class="btn-contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="article-hero">
+    <h1>SmartÉtude</h1>
+    <p>Transformer les cours en fiches de révision intelligentes grâce à l’IA</p>
+</section>
+
+<div class="article-container">
+
+    <img src="mon-portfolio/ressource/projet1/Screenshot from 2025-11-01 19-20-14.png" alt="SmartÉtude" class="article-image">
+
+    <div class="article-content">
+
+        <span class="article-badge">Projet IA & Éducation</span>
+
+        <h1 class="article-title">
+            SmartÉtude : une plateforme intelligente pour transformer les cours en fiches de révision interactives
+        </h1>
+
+        <div class="highlight-box">
+            <p>
+                Avec l’augmentation du volume de cours et de documents pédagogiques, de nombreux étudiants rencontrent des difficultés à synthétiser l’information et à évaluer leur compréhension. 
+                SmartÉtude est né de ce constat : proposer une plateforme éducative intelligente capable d’automatiser la révision grâce à l’intelligence artificielle.
+            </p>
+        </div>
+
+        <div class="article-text">
+
+            <h2>Objectif du projet</h2>
+            <p>
+                L’objectif principal de SmartÉtude est de permettre aux élèves et étudiants de transformer automatiquement leurs documents de cours en fiches de révision claires, accompagnées de quiz interactifs.
+                La plateforme vise à rendre les révisions plus efficaces, personnalisées et accessibles, même à partir de documents longs et complexes.
+            </p>
+
+            <h2>🧩 Fonctionnement général</h2>
+
+            <h3>1. Importation des documents</h3>
+            <p>Les utilisateurs peuvent importer des fichiers pédagogiques aux formats suivants :</p>
+            <ul>
+                <li>PDF</li>
+                <li>DOCX</li>
+                <li>TXT</li>
+            </ul>
+            <p>Le texte est automatiquement extrait après l’upload.</p>
+
+            <h3>2. Analyse et traitement du texte</h3>
+            <p>
+                Le contenu est nettoyé, segmenté et analysé à l’aide d’outils NLP afin d’identifier les éléments essentiels du cours.
+            </p>
+
+            <h3>3. Génération automatique du résumé</h3>
+            <p>
+                Un modèle d’intelligence artificielle génère un résumé structuré, équivalent à une fiche de révision,
+                permettant à l’étudiant d’aller directement à l’essentiel.
+            </p>
+
+            <h3>4. Création de quiz intelligents</h3>
+            <ul>
+                <li>QCM</li>
+                <li>Questions vrai / faux</li>
+                <li>Questions à compléter</li>
+            </ul>
+
+            <h3>5. Évaluation et feedback</h3>
+            <p>
+                Après chaque quiz, l’utilisateur reçoit un score, des corrections détaillées et un feedback personnalisé.
+            </p>
+
+            <h3>6. Assistant conversationnel IA</h3>
+            <p>
+                SmartÉtude intègre un chatbot éducatif permettant de discuter directement avec le contenu du document,
+                comme avec un tuteur intelligent.
+            </p>
+
+            <h2>⚙️ Technologies utilisées</h2>
+            <ul>
+                <li><strong>Backend :</strong> Django, Django REST Framework</li>
+                <li><strong>Base de données :</strong> PostgreSQL</li>
+                <li><strong>Asynchrone :</strong> Celery, Redis</li>
+                <li><strong>IA & NLP :</strong> OpenAI API, SpaCy, NLTK, Sentence Transformers</li>
+                <li><strong>Frontend :</strong> HTML, Tailwind CSS, JavaScript</li>
+                <li><strong>Authentification :</strong> JWT</li>
+            </ul>
+
+            <h2> Valeur pédagogique</h2>
+            <p>
+                SmartÉtude favorise l’apprentissage actif, l’autonomie des étudiants et la personnalisation des révisions.
+                Il combine résumé automatique, évaluation intelligente et interaction conversationnelle.
+            </p>
+
+            <h2>Perspectives d’évolution</h2>
+            <ul>
+                <li>Application mobile</li>
+                <li>Intégration avec des plateformes e-learning (LMS)</li>
+                <li>Recommandations personnalisées</li>
+                <li>Suivi académique avancé</li>
+            </ul>
+
+            <h2> Conclusion</h2>
+            <p>
+                SmartÉtude est un projet à la croisée de l’éducation et de l’intelligence artificielle.
+                Il démontre comment les technologies modernes peuvent transformer l’apprentissage
+                en le rendant plus interactif, efficace et personnalisé.
+            </p>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
