@@ -222,3 +222,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Exporter pour utilisation dans d'autres pages
 window.LikeSystem = LikeSystem;
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const readLink = document.querySelector(".featured-link");
+    const article = document.getElementById("article-complet");
+
+    if (!readLink || !article) return;
+
+    // Sécurité : cacher au chargement
+    article.classList.remove("show");
+
+    readLink.addEventListener("click", function (e) {
+        e.preventDefault(); // empêche le saut direct
+
+        // Affiche l'article
+        article.classList.add("show");
+
+        // Scroll doux vers l'article
+        article.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        // Optionnel : cacher le lien après clic
+        readLink.style.display = "none";
+    });
+
+});

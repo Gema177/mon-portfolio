@@ -377,6 +377,27 @@
     cursor: zoom-in;
 }
 
+.article-complet-section {
+    display: none;
+}
+
+.article-complet-section.show {
+    display: block;
+    animation: revealArticle 0.5s ease-in-out;
+}
+
+@keyframes revealArticle {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -426,6 +447,7 @@
                         Lire l'article complet
                         <i class="fas fa-arrow-right"></i>
                     </a>
+                    
                 </div>
             </div>
         </div>
